@@ -12,6 +12,12 @@ namespace RogueGods.Gameplay.LocalPlayer
             return ControllerState.LocomotionState;
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            SetOwner(GetComponent<Actor>());
+        }
+
         protected override void Update()
         {
             Input.SetDirection(new Vector2(UnityInput.GetAxis("Horizontal"), UnityInput.GetAxis("Vertical")));

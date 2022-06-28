@@ -16,9 +16,12 @@ namespace RogueGods
 
         protected abstract State<TOwner, TMachineSelf> GetDefaultState();
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            Init();
+        }
+
+        protected virtual void Start()
+        {
         }
 
         protected virtual void Update()
