@@ -22,7 +22,7 @@ namespace RogueGods.Gameplay
         public override void Awake()
         {
             base.Awake();
-            Settings = Resources.Load<DamageSettings>("DamageSettings");
+            Settings = Resources.Load<DamageSettings>(nameof(DamageSettings));
         }
 
         public bool ApplyDamage(DamageRequest request, DamageListener onMadeDamage = null)

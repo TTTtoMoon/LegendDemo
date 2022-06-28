@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0fe7d5fe404a71a468810f1d37bf10, type: 3}
+  m_Name: MiscConfiguration
+  m_EditorClassIdentifier: 
+  CrashDamageCoefficientOfMonster: 0
+  AroundConfigs: []
+  CrashDamageTimeSpan: 0.5
+  ShieldBrokenVFX: {fileID: 0}
+  ReliveVFX: {fileID: 0}
+  CriticalCameraOffsetType: 0
+  CriticalCameraShakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ConstParabolaHeight: 0
+  ParabolasScaleCurves: []
+  ParabolaHeightCurves: []

@@ -109,6 +109,7 @@ namespace RogueGods
                 .Select(x => x.GetValue(this) as GameSystem)
                 .ToArray();
 
+            MiscConfiguration.PreLoad();
             for (int i = 0, length = m_Systems.Length; i < length; i++)
             {
                 m_Systems[i].Awake();
