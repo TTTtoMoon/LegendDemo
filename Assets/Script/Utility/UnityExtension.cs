@@ -68,7 +68,7 @@ namespace RogueGods.Utility
             return new Vector2(_this.x, _this.z);
         }
 
-        public static Vector2 Rotation(this Vector2 _this, float angle)
+        public static void Rotation(ref this Vector2 _this, float angle)
         {
             float x    = _this.x;
             float y    = _this.y;
@@ -78,7 +78,6 @@ namespace RogueGods.Utility
             float newY = x * -sin + y * cos;
             _this.x = newX;
             _this.y = newY;
-            return _this;
         }
 
         /// <summary>
@@ -90,7 +89,7 @@ namespace RogueGods.Utility
         public static Vector3 Offset(this Transform _this, Vector2 offset)
         {
             Vector3 position = _this.position;
-            offset     =  offset.Rotation(_this.eulerAngles.y);
+            offset.Rotation(_this.eulerAngles.y);
             position.x += offset.x;
             position.z += offset.y;
             return position;

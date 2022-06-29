@@ -29,7 +29,13 @@ namespace RogueGods.Gameplay.LocalPlayer
                 return;
             }
 
-            HandleMove();
+            if (HandleMove())
+            {
+                return;
+            }
+            
+            m_AnimationSpeed = 0f;
+            _Owner.StopMove();
         }
 
         protected override void OnExit()
@@ -48,7 +54,6 @@ namespace RogueGods.Gameplay.LocalPlayer
                 m_InputDirection = Quaternion.LookRotation(inputDirection);
                 m_AnimationSpeed = Mathf.MoveTowards(m_AnimationSpeed, 1f, _Owner.Locomotion.MovementAcceleration / _Owner.Locomotion.MovementSpeed);
                 _Owner.Move(_Owner.Locomotion.MovementSpeed * Time.deltaTime * inputDirection, m_AnimationSpeed);
-                return true;
             }
 
             if (m_InputDirection != null && m_InputDirection.Value != _Owner.Rotation)
@@ -56,7 +61,7 @@ namespace RogueGods.Gameplay.LocalPlayer
                 _Owner.transform.rotation = Quaternion.RotateTowards(_Owner.Rotation, m_InputDirection.Value, Time.deltaTime * _Owner.Locomotion.RotationSpeed);
             }
 
-            return false;
+            return inputDirection != Vector3.zero;
         }
 
         private bool HandleSkill()
