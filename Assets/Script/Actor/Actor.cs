@@ -18,6 +18,13 @@ namespace RogueGods.Gameplay
             public static event DamageListener OnTakeDamage;
         }
 
+        [Serializable]
+        public struct AttributeConfig
+        {
+            public AttributeType Type;
+            public float         Value;
+        }
+
         public bool IsValidAndActive()
         {
             return this != null && gameObject.activeSelf;
@@ -29,6 +36,7 @@ namespace RogueGods.Gameplay
         [SerializeField] private int                m_NormalAttack;
         [SerializeField] private int                m_EnergySkill;
         [SerializeField] private LocomotionProperty m_Locomotion;
+        [SerializeField] private AttributeConfig[]  m_Attributes;
         [NonSerialized]  private SlotPoint          m_SlotPoint;
         [NonSerialized]  private NavMeshAgent       m_NavMeshAgent;
         [NonSerialized]  private float              m_CurrentHealth;
@@ -86,6 +94,13 @@ namespace RogueGods.Gameplay
             Animator        = new AnimatorDirector(GetComponent<Animator>());
             Tag             = new ActorTagStack();
             Attribute       = new AttributeProperty();
+
+            for (int i = 0, length = m_Attributes.Length; i < length; i++)
+            {
+                Attribute.SetBaseValueWithoutNotify(m_Attributes[i].Type, m_Attributes[i].Value);
+            }
+
+            m_CurrentHealth = Attribute[AttributeType.MaxHealth];
         }
 
         public void EnableRootMotion()
