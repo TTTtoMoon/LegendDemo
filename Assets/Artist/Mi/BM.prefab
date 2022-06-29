@@ -104,9 +104,9 @@ MonoBehaviour:
   m_NormalAttack: 0
   m_EnergySkill: 0
   m_Locomotion:
-    m_RotationSpeed: 360
-    m_MovementSpeed: 4
-    m_MovementAcceleration: 3
+    m_RotationSpeed: 3000
+    m_MovementSpeed: 3
+    m_MovementAcceleration: 2
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 3000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
