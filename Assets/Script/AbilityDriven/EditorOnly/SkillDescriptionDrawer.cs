@@ -49,7 +49,7 @@ namespace RogueGods.Gameplay.AbilityDriven
             void ShowActorDropdown()
             {
                 GenericMenu menu   = new GenericMenu();
-                string[]    assets = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/RogueGods/Gameplay/DynamicLoad/Roles" });
+                string[]    assets = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Artist/Prefab" });
                 for (int i = 0; i < assets.Length; i++)
                 {
                     string path = AssetDatabase.GUIDToAssetPath(assets[i]);
