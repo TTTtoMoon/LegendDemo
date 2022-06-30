@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7f721b6ae34a45ac5119c3cd5772eb, type: 3}
+  m_Name: Ability10001
+  m_EditorClassIdentifier: 
+  m_ConfigurationID: 10001
+  m_Tag:
+    Tag: 0
+  m_Duration:
+    m_UniqueName: Duration
+    m_Value: 0.5
+    m_IsInt: 0
+  m_Components:
+  - rid: 5229940989932863492
+  m_Features:
+  - rid: 5229940989932863493
+  references:
+    version: 2
+    RefIds:
+    - rid: 5229940989932863492
+      type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
+      data:
+        State:
+          m_Name: Attack1
+        EnableRootMotion: 0
+        ActingTime: {x: 0, y: 0.5}
+    - rid: 5229940989932863493
+      type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
+      data:
+        Frames:
+        - Time: 0.27
+          Targets:
+          - rid: 5229940989932863494
+          Effects:
+          - rid: 5229940989932863496
+    - rid: 5229940989932863494
+      type: {class: StaticSectorArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 5229940989932863495
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 0}
+        InsideRadius: 0
+        OuterRadius: 1
+        StartAngle: -90
+        EndAngle: 90
+    - rid: 5229940989932863495
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 5229940989932863496
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0

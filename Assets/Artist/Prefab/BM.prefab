@@ -101,12 +101,13 @@ MonoBehaviour:
   m_Type: 1
   m_BodyMaterial: 1
   m_BodyType: 0
-  m_NormalAttack: 0
+  m_NormalAttack: 10001
   m_EnergySkill: 0
   m_Locomotion:
     m_RotationSpeed: 3000
     m_MovementSpeed: 3
     m_MovementAcceleration: 2
+  m_Attributes: []
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0
