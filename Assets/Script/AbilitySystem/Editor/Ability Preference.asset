@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4548b7440953429c8cdc5bcbe7e1861c, type: 3}
   m_Name: Ability Preference
   m_EditorClassIdentifier: 
-  AbilitySaveFolder: Assets/RogueGods/Gameplay/DynamicLoad/Ability
+  AbilitySaveFolder: Assets/Resources/Ability
   Abilities: []

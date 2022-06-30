@@ -120,7 +120,8 @@ namespace AbilityEditor
                     DestroyImmediate(m_NewAbility);
                 }
 
-                m_NewAbility = CreateInstance<AbilityConfiguration>();
+                m_NewAbility      = CreateInstance<AbilityConfiguration>();
+                m_NewAbility.name = "New Ability";
                 MenuTree.Selection.Clear();
             }
         }

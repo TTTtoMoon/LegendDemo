@@ -29,6 +29,12 @@ namespace RogueGods.Gameplay.AbilityDriven
             }
         }
 
+        public override void Awake()
+        {
+            base.Awake();
+            this.SetUp();
+        }
+
         public override void Update()
         {
             base.Update();
@@ -55,7 +61,7 @@ namespace RogueGods.Gameplay.AbilityDriven
             public Pool(int abilityID)
             {
                 string path = Ability.GetAbilityName(abilityID);
-                Ability ability = Resources.Load<Ability>(path);
+                Ability ability = Resources.Load<Ability>($"Ability/{path}");
                 m_Json = ability != null ? AbilitySerializer.ToJson(ability) : string.Empty;
                 Resources.UnloadAsset(ability);
             }
