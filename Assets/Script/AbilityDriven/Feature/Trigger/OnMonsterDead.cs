@@ -21,9 +21,9 @@ namespace RogueGods.Gameplay.AbilityDriven.Feature
         {
         }
 
-        private void Callback(Actor actor)
+        private void Callback(DamageResponse response)
         {
-            InvokeEffect(actor);
+            InvokeEffect(response.DamageTaker);
         }
     }
 }
