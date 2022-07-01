@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.66
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.46
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalRotation.x
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalRotation.z
@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -101,13 +101,13 @@ MonoBehaviour:
   m_Type: 1
   m_BodyMaterial: 1
   m_BodyType: 0
-  m_NormalAttack: 10001
-  m_EnergySkill: 0
   m_Locomotion:
     m_RotationSpeed: 3000
     m_MovementSpeed: 3
     m_MovementAcceleration: 2
-  m_Attributes: []
+  m_Attributes:
+  - Type: 104
+    Value: 0.5
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
+  m_NormalAttacks: 11270000
+  m_SpecialAttack: 0
 --- !u!114 &3937976831312300055
 MonoBehaviour:
   m_ObjectHideFlags: 0
