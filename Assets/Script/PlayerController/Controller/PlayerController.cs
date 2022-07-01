@@ -1,3 +1,5 @@
+using System;
+using RogueGods.Gameplay.AbilityDriven;
 using RogueGods.Utility;
 using UnityEngine;
 using UnityInput = UnityEngine.Input;
@@ -7,8 +9,14 @@ namespace RogueGods.Gameplay.LocalPlayer
     public class PlayerController : StateMachine<Actor, PlayerController>
     {
         public readonly PlayerInput Input = new PlayerInput();
-        
-        private Transform m_MainCamera;
+
+        [SerializeField] private int[] m_NormalAttacks = new int[0];
+        [SerializeField] private int   m_SpecialAttack;
+
+        private Transform         m_MainCamera;
+
+        public SkillDescriptor[] NormalAttacks { get; private set; }
+        public SkillDescriptor   SpecialAttack { get; private set; }
 
         protected override State<Actor, PlayerController> GetDefaultState()
         {
@@ -25,6 +33,13 @@ namespace RogueGods.Gameplay.LocalPlayer
         {
             base.Start();
             SetOwner(GetComponent<Actor>());
+            NormalAttacks = new SkillDescriptor[m_NormalAttacks.Length];
+            for (int i = 0; i < m_NormalAttacks.Length; i++)
+            {
+                NormalAttacks[i] = new SkillDescriptor(m_NormalAttacks[i]);
+            }
+
+            SpecialAttack = new SkillDescriptor(m_SpecialAttack);
         }
 
         protected override void Update()
@@ -34,14 +49,17 @@ namespace RogueGods.Gameplay.LocalPlayer
             {
                 direction.y += 1f;
             }
+
             if (UnityInput.GetKey(KeyCode.A))
             {
                 direction.x -= 1f;
             }
+
             if (UnityInput.GetKey(KeyCode.S))
             {
                 direction.y -= 1f;
             }
+
             if (UnityInput.GetKey(KeyCode.D))
             {
                 direction.x += 1f;
@@ -58,7 +76,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             {
                 Input.EnqueueInput(InputType.Dash, false);
             }
-            
+
             if (UnityInput.GetKeyDown(KeyCode.J))
             {
                 Input.EnqueueInput(InputType.NormalAttack, true);
@@ -67,7 +85,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             {
                 Input.EnqueueInput(InputType.NormalAttack, false);
             }
-            
+
             if (UnityInput.GetKeyDown(KeyCode.K))
             {
                 Input.EnqueueInput(InputType.EnergySkill, true);
@@ -92,7 +110,7 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         public bool TryNormalAttack()
         {
-            if (Owner.SkillDirector.Begin(Owner.NormalAttack) == false)
+            if (ControllerState.NormalAttackState.TryNormalAttack())
             {
                 return false;
             }
@@ -100,9 +118,9 @@ namespace RogueGods.Gameplay.LocalPlayer
             return true;
         }
 
-        public bool TrySkill()
+        public bool TrySpecialAttack()
         {
-            if (Owner.SkillDirector.Begin(Owner.EnergySkill) == false)
+            if (Owner.SkillDirector.Begin(SpecialAttack) == false)
             {
                 return false;
             }

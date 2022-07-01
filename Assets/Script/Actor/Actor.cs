@@ -33,8 +33,6 @@ namespace RogueGods.Gameplay
         [SerializeField] private TargetFilter       m_Type;
         [SerializeField] private BodyMaterial       m_BodyMaterial;
         [SerializeField] private BodyType           m_BodyType;
-        [SerializeField] private int                m_NormalAttack;
-        [SerializeField] private int                m_EnergySkill;
         [SerializeField] private LocomotionProperty m_Locomotion;
         [SerializeField] private AttributeConfig[]  m_Attributes;
         [NonSerialized]  private SlotPoint          m_SlotPoint;
@@ -51,8 +49,6 @@ namespace RogueGods.Gameplay
         public LocomotionProperty Locomotion      => m_Locomotion;
         public SlotPoint          SlotPoint       => m_SlotPoint;
         public NavMeshAgent       NavMeshAgent    => m_NavMeshAgent;
-        public SkillDescriptor    NormalAttack    { get; private set; }
-        public SkillDescriptor    EnergySkill     { get; private set; }
         public AbilityDirector    AbilityDirector { get; private set; }
         public SkillDirector      SkillDirector   { get; private set; }
         public BuffDirector       BuffDirector    { get; private set; }
@@ -86,8 +82,6 @@ namespace RogueGods.Gameplay
         {
             m_SlotPoint     = GetComponent<SlotPoint>();
             m_NavMeshAgent  = GetComponent<NavMeshAgent>();
-            NormalAttack    = new SkillDescriptor(m_NormalAttack);
-            EnergySkill     = new SkillDescriptor(m_EnergySkill);
             AbilityDirector = new AbilityDirector(this);
             SkillDirector   = new SkillDirector(this, AbilityDirector);
             BuffDirector    = new BuffDirector(AbilityDirector);

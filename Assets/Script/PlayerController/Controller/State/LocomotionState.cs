@@ -66,7 +66,7 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         private bool HandleSkill()
         {
-            if (_Machine.VerifyInput(InputType.EnergySkill, InputState.Down) && _Machine.TrySkill())
+            if (_Machine.VerifyInput(InputType.EnergySkill, InputState.Down) && _Machine.TrySpecialAttack())
             {
                 _Machine.ChangeState(SkillState);
                 return true;

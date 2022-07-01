@@ -5,6 +5,24 @@ namespace RogueGods.Gameplay.LocalPlayer
 {
     public class NormalAttackState : ControllerState
     {
+        private float m_PreviousAttackTime;
+        private int   m_NormalAttackIndex = 0;
+
+        public bool TryNormalAttack()
+        {
+            if (Time.time - m_PreviousAttackTime > 0.2f || m_NormalAttackIndex + 1 >= _Machine.NormalAttacks.Length)
+            {
+                m_NormalAttackIndex = 0;
+            }
+            else
+            {
+                m_NormalAttackIndex++;
+            }
+
+            SkillDescriptor normalAttack = _Machine.NormalAttacks[m_NormalAttackIndex];
+            return _Owner.SkillDirector.Begin(normalAttack);
+        }
+
         protected override void OnEnter()
         {
         }
@@ -17,7 +35,7 @@ namespace RogueGods.Gameplay.LocalPlayer
         {
             base.OnUpdate();
 
-            if (_Machine.VerifyInput(InputType.EnergySkill, InputState.Down) && _Machine.TrySkill())
+            if (_Machine.VerifyInput(InputType.EnergySkill, InputState.Down) && _Machine.TrySpecialAttack())
             {
                 _Machine.ChangeState(SkillState);
                 return;
@@ -30,13 +48,17 @@ namespace RogueGods.Gameplay.LocalPlayer
                 _Machine.ChangeState(LocomotionState);
                 return;
             }
-            
+
             switch (_Owner.SkillDirector.CurrentStage)
             {
-                case SkillPhase.Finishing: 
+                case SkillPhase.Preparing:
+                case SkillPhase.Acting:
+                    m_PreviousAttackTime = Time.time;
+                    break;
+                case SkillPhase.Finishing:
                     if (_Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Up))
                     {
-                        _Machine.TryNormalAttack();
+                        TryNormalAttack();
                     }
 
                     break;
