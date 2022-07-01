@@ -41,30 +41,41 @@ namespace RogueGods.Gameplay.LocalPlayer
                 return;
             }
 
-            Vector3 inputDirection = _Machine.Input.Direction;
-            if (inputDirection != Vector3.zero)
-            {
-                _Owner.SkillDirector.Interrupt();
-                _Machine.ChangeState(LocomotionState);
-                return;
-            }
-
             switch (_Owner.SkillDirector.CurrentStage)
             {
                 case SkillPhase.Preparing:
+                    m_PreviousAttackTime = Time.time;
+                    TryLocomotion();
+                    break;
+
                 case SkillPhase.Acting:
                     m_PreviousAttackTime = Time.time;
                     break;
+
                 case SkillPhase.Finishing:
-                    if (_Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Up))
+                    if (TryLocomotion() == false && _Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Up))
                     {
                         _Machine.TryNormalAttack();
                     }
 
                     break;
+
                 case SkillPhase.NoSkill:
                     _Machine.ChangeState(LocomotionState);
                     break;
+            }
+
+            bool TryLocomotion()
+            {
+                Vector3 inputDirection = _Machine.Input.Direction;
+                if (inputDirection != Vector3.zero)
+                {
+                    _Owner.SkillDirector.Interrupt();
+                    _Machine.ChangeState(LocomotionState);
+                    return true;
+                }
+
+                return false;
             }
         }
     }
