@@ -75,8 +75,10 @@ namespace AbilityEditor
         public void Save(bool refreshImmediately = true)
         {
             CustomName = m_CustomName;
-            string abilityName       = Ability.GetAbilityName(m_Ability.ConfigurationID);
-            string configurationPath = $"{AbilityPreference.Instance.AbilityConfigurationFolder}/{name}.asset";
+            string abilityName = Ability.GetAbilityName(m_Ability.ConfigurationID);
+            name           = abilityName;
+            m_Ability.name = abilityName;
+            string configurationPath = $"{AbilityPreference.Instance.AbilityConfigurationFolder}/{abilityName}.asset";
             string abilityPath       = $"{AbilityPreference.Instance.AbilitySaveFolder}/{abilityName}.asset";
             if (AssetDatabase.Contains(this) == false)
             {
@@ -96,10 +98,9 @@ namespace AbilityEditor
                     Directory.CreateDirectory(AbilityPreference.Instance.AbilityConfigurationFolder);
                 }
 
-                name           = abilityName;
-                m_Ability.name = abilityName;
                 AssetDatabase.CreateAsset(this,      configurationPath);
                 AssetDatabase.CreateAsset(m_Ability, abilityPath);
+                m_Ability = AssetDatabase.LoadAssetAtPath<Ability>(abilityPath);
             }
             else
             {
@@ -107,7 +108,7 @@ namespace AbilityEditor
                 {
                     AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), abilityName);
                 }
-                
+
                 if (m_Ability.name != abilityName)
                 {
                     AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(m_Ability), abilityName);
@@ -127,8 +128,7 @@ namespace AbilityEditor
         public void Destroy()
         {
             if (m_Ability != null) AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(m_Ability));
-            if (AssetDatabase.IsSubAsset(this)) AssetDatabase.RemoveObjectFromAsset(this);
-            DestroyImmediate(this);
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(this));
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }

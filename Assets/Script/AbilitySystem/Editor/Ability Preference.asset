@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Ability Preference
   m_EditorClassIdentifier: 
   AbilitySaveFolder: Assets/Resources/Ability
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: ad2acd3c8f01b834ea4d3c798be8a8e3, type: 2}
