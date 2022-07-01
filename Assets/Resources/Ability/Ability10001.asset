@@ -22,27 +22,29 @@ MonoBehaviour:
   m_Components:
   - rid: 5229940989932863492
   m_Features:
-  - rid: 5229940989932863493
+  - rid: 2426968539276509185
   references:
     version: 2
     RefIds:
-    - rid: 5229940989932863492
-      type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2426968539276509185
+      type: {class: AbilityTriggerFeature, ns: Abilities, asm: AbilitySystem}
       data:
-        State:
-          m_Name: Attack1
-        EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0.5}
-    - rid: 5229940989932863493
-      type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
-      data:
-        Frames:
-        - Time: 0.27
-          Targets:
-          - rid: 5229940989932863494
-          Effects:
-          - rid: 5229940989932863496
-    - rid: 5229940989932863494
+        Condition:
+          m_Item:
+            m_Value:
+              rid: -2
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        Triggers:
+        - rid: 2426968539276509192
+        Targets:
+        - rid: 2426968539276509188
+        Effects:
+        - rid: 2426968539276509190
+    - rid: 2426968539276509188
       type: {class: StaticSectorArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
       data:
         Origin: 0
@@ -51,20 +53,20 @@ MonoBehaviour:
           m_Item:
             m_Index: 0
             m_Value:
-              rid: 5229940989932863495
+              rid: 2426968539276509189
             m_Reverse: 0
           m_AndGroups: []
           m_OrGroups: []
         CenterOffset: {x: 0, y: 0}
         InsideRadius: 0
         OuterRadius: 1
-        StartAngle: -90
+        StartAngle: -80
         EndAngle: 90
-    - rid: 5229940989932863495
+    - rid: 2426968539276509189
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
       data:
         Filter: 2
-    - rid: 5229940989932863496
+    - rid: 2426968539276509190
       type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
       data:
         DamageCoefficient:
@@ -87,4 +89,27 @@ MonoBehaviour:
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
         HitVFX: {fileID: 0}
-        IgnoreSameTarget: 0
+        IgnoreSameTarget: 1
+    - rid: 2426968539276509192
+      type: {class: Ticker, ns: RogueGods.Gameplay.AbilityDriven.Feature, asm: Assembly-CSharp}
+      data:
+        StartTime:
+          m_UniqueName: StartTime
+          m_Value: 0.27
+          m_IsInt: 0
+        Duration:
+          m_UniqueName: Duration01
+          m_Value: 0.15
+          m_IsInt: 0
+        Interval:
+          m_UniqueName: Interval
+          m_Value: 0.03
+          m_IsInt: 0
+        TickImmediately: 1
+    - rid: 5229940989932863492
+      type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
+      data:
+        State:
+          m_Name: Attack1
+        EnableRootMotion: 0
+        ActingTime: {x: 0, y: 0.5}

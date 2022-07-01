@@ -17,7 +17,6 @@ MonoBehaviour:
   CrashDamageTimeSpan: 0.5
   ShieldBrokenVFX: {fileID: 0}
   ReliveVFX: {fileID: 0}
-  CriticalCameraOffsetType: 0
   CriticalCameraShakeCurve:
     serializedVersion: 2
     m_Curve:
@@ -31,8 +30,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.10919131
+      value: 0.7672145
+      inSlope: 0.00046852988
+      outSlope: 0.00046852988
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.40335807
+    - serializedVersion: 3
+      time: 0.19213967
+      value: -0.0013003349
       inSlope: 0
       outSlope: 0
       tangentMode: 0

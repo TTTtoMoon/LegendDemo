@@ -15,3 +15,5 @@ MonoBehaviour:
   AbilitySaveFolder: Assets/Resources/Ability
   Abilities:
   - {fileID: 11400000, guid: ad2acd3c8f01b834ea4d3c798be8a8e3, type: 2}
+  - {fileID: 11400000, guid: 8f06ba40410e33f4e80391ad951680e1, type: 2}
+  - {fileID: 11400000, guid: 609d69654fc338d438ee0bbf5a86182b, type: 2}

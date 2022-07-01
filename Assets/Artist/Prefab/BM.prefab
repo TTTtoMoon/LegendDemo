@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
-  m_NormalAttacks: 11270000
+  m_NormalAttacks: 112700001227000013270000
   m_SpecialAttack: 0
 --- !u!114 &3937976831312300055
 MonoBehaviour:
