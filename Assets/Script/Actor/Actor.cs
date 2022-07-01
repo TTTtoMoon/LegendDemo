@@ -232,6 +232,15 @@ namespace RogueGods.Gameplay
         {
             OnTakeDamage?.Invoke(response);
             DecreaseCurrentHealth(response.Damage);
+            if (m_CurrentHealth > 0f)
+            {
+                Animator.Play(AnimationDefinition.State.Hurt);
+            }
+            else
+            {
+                Animator.Play(AnimationDefinition.State.Death);
+                OnDead?.Invoke();
+            }
         }
     }
 }
