@@ -77,6 +77,17 @@ namespace RogueGods.Gameplay
                 }
             }
         }
+        
+        public float CurrentEnergy
+        {
+            get => m_CurrentEnergy;
+            set
+            {
+                float old = m_CurrentEnergy;
+                m_CurrentEnergy = value;
+                OnCurrentEnergyChanged?.Invoke(old, value);
+            }
+        }
 
         private void Awake()
         {
@@ -195,32 +206,32 @@ namespace RogueGods.Gameplay
 
         bool IDamageMaker.CanMakeDamage(in DamageRequest request)
         {
-            throw new NotImplementedException();
+            return m_CurrentHealth > 0f;
         }
 
         void IDamageMaker.PrepareMakeDamage(in DamageRequest request, ref Attacker attacker)
         {
-            throw new NotImplementedException();
+            
         }
 
         void IDamageMaker.MadeDamage(in DamageResponse response)
         {
-            throw new NotImplementedException();
+            OnMadeDamage?.Invoke(response);
         }
 
         bool IDamageTaker.CanTakeDamage(in DamageRequest request)
         {
-            throw new NotImplementedException();
+            return m_CurrentHealth > 0f && Tag.HasTag(ActorTag.Transparency) == false;
         }
 
         void IDamageTaker.PrepareTakeDamage(in DamageRequest request, ref Defender defender)
         {
-            throw new NotImplementedException();
         }
 
         void IDamageTaker.TakeDamage(in DamageResponse response)
         {
-            throw new NotImplementedException();
+            OnTakeDamage?.Invoke(response);
+            DecreaseCurrentHealth(response.Damage);
         }
     }
 }
