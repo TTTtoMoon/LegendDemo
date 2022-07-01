@@ -13,9 +13,9 @@ namespace RogueGods.Gameplay
     {
         public static class Events
         {
-            public static event Action<Actor>  OnDead;
-            public static event DamageListener OnMadeDamage;
-            public static event DamageListener OnTakeDamage;
+            public static DamageListener OnDead;
+            public static DamageListener OnMadeDamage;
+            public static DamageListener OnTakeDamage;
         }
 
         [Serializable]
@@ -58,7 +58,7 @@ namespace RogueGods.Gameplay
 
         public event AttributeChangeDelegate OnCurrentHealthChanged;
         public event AttributeChangeDelegate OnCurrentEnergyChanged;
-        public event Action                  OnDead;
+        public event DamageListener          OnDead;
         public event DamageListener          OnMadeDamage;
         public event DamageListener          OnTakeDamage;
 
@@ -77,7 +77,7 @@ namespace RogueGods.Gameplay
                 }
             }
         }
-        
+
         public float CurrentEnergy
         {
             get => m_CurrentEnergy;
@@ -151,7 +151,7 @@ namespace RogueGods.Gameplay
 
             SetCurrentHealth(m_CurrentHealth - modify);
         }
-        
+
         /// <summary>
         /// 移动
         /// </summary>
@@ -211,12 +211,12 @@ namespace RogueGods.Gameplay
 
         void IDamageMaker.PrepareMakeDamage(in DamageRequest request, ref Attacker attacker)
         {
-            
         }
 
         void IDamageMaker.MadeDamage(in DamageResponse response)
         {
             OnMadeDamage?.Invoke(response);
+            Events.OnMadeDamage?.Invoke(response);
         }
 
         bool IDamageTaker.CanTakeDamage(in DamageRequest request)
@@ -230,8 +230,10 @@ namespace RogueGods.Gameplay
 
         void IDamageTaker.TakeDamage(in DamageResponse response)
         {
-            OnTakeDamage?.Invoke(response);
             DecreaseCurrentHealth(response.Damage);
+            OnTakeDamage?.Invoke(response);
+            Events.OnTakeDamage?.Invoke(response);
+            
             if (m_CurrentHealth > 0f)
             {
                 Animator.Play(AnimationDefinition.State.Hurt);
@@ -239,7 +241,8 @@ namespace RogueGods.Gameplay
             else
             {
                 Animator.Play(AnimationDefinition.State.Death);
-                OnDead?.Invoke();
+                OnDead?.Invoke(response);
+                Events.OnDead?.Invoke(response);
             }
         }
     }
