@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Abilities;
 using UnityEngine;
 
@@ -34,4 +34,4 @@ namespace RogueGods.Gameplay.AbilityDriven.TriggerEffect
             GameManager.CameraSystem.SetCameraDistance(ShakeCurve, CameraOffsetType);
         }
     }
-}
+}*/

@@ -20,7 +20,6 @@ namespace RogueGods
         public static OrbSystem        OrbSystem        => Instance.m_OrbSystem;
         public static FlashChainSystem FlashChainSystem => Instance.m_FlashChainSystem;
         public static LineRenderSystem LineRenderSystem => Instance.m_LineRenderSystem;
-        public static CameraSystem     CameraSystem     => Instance.m_CameraSystem;
 
         private readonly DamageSystem     m_DamageSystem     = new DamageSystem();
         private readonly AbilitySystem    m_AbilitySystem    = new AbilitySystem();
@@ -28,7 +27,6 @@ namespace RogueGods
         private readonly OrbSystem        m_OrbSystem        = new OrbSystem();
         private readonly FlashChainSystem m_FlashChainSystem = new FlashChainSystem();
         private readonly LineRenderSystem m_LineRenderSystem = new LineRenderSystem();
-        private readonly CameraSystem     m_CameraSystem     = new CameraSystem();
 
         private GameSystem[] m_Systems;
 
@@ -105,7 +103,8 @@ namespace RogueGods
             Instance = this;
             DontDestroyOnLoad(this);
             m_Systems = GetType()
-                .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.GetField)
+                .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Where(x=>typeof(GameSystem).IsAssignableFrom(x.FieldType))
                 .Select(x => x.GetValue(this) as GameSystem)
                 .ToArray();
 

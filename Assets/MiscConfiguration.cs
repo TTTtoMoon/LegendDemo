@@ -38,10 +38,6 @@ namespace RogueGods
         public GameObject ReliveVFX;
 
         [FoldoutGroup("战斗")]
-        [LabelText("暴击震屏：抖动方式")] 
-        public CameraSystem.CameraOffsetType CriticalCameraOffsetType;
-
-        [FoldoutGroup("战斗")]
         [LabelText("暴击震屏：抖动曲线")] [SuffixLabel("x:时间(秒) y:强度")]
         public AnimationCurve CriticalCameraShakeCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
@@ -85,14 +81,6 @@ namespace RogueGods
             return m_Instance.ReliveVFX;
         }
 
-        /// <summary>
-        /// 播放暴击震屏
-        /// </summary>
-        public static void PlayCriticalShakeCamera()
-        {
-            GameManager.CameraSystem.SetCameraDistance(m_Instance.CriticalCameraShakeCurve, m_Instance.CriticalCameraOffsetType);
-        }
-        
         #endregion
 
         #region 抛物线
