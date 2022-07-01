@@ -7,6 +7,9 @@ namespace RogueGods.Gameplay.LocalPlayer
         private Quaternion? m_InputDirection;
         private float       m_AnimationSpeed = 0f;
 
+        private float MovementAcceleration => _Owner.Locomotion.MovementAcceleration * (1f + _Owner.Attribute[AttributeType.MoveSpeedCoefficientModifier]);
+        private float MovementSpeed        => _Owner.Locomotion.MovementSpeed        * (1f + _Owner.Attribute[AttributeType.MoveSpeedCoefficientModifier]);
+
         protected override void OnEnter()
         {
             base.OnEnter();
@@ -33,7 +36,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             {
                 return;
             }
-            
+
             m_AnimationSpeed = 0f;
             _Owner.StopMove();
         }
@@ -52,7 +55,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             if (inputDirection != Vector3.zero)
             {
                 m_InputDirection = Quaternion.LookRotation(inputDirection);
-                m_AnimationSpeed = Mathf.MoveTowards(m_AnimationSpeed, 1f, _Owner.Locomotion.MovementAcceleration / _Owner.Locomotion.MovementSpeed);
+                m_AnimationSpeed = Mathf.MoveTowards(m_AnimationSpeed, 1f, MovementAcceleration / MovementSpeed);
                 _Owner.Move(_Owner.Locomotion.MovementSpeed * Time.deltaTime * inputDirection, m_AnimationSpeed);
             }
 

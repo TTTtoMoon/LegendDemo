@@ -85,10 +85,7 @@ namespace RogueGods.Gameplay.AbilityDriven
         /// <summary>
         /// 施放技能
         /// </summary>
-        /// <param name="skill">技能</param>
-        /// <param name="searchedTarget">索敌目标</param>
-        /// <returns></returns>
-        public bool Begin(SkillDescriptor skill, IAbilityTarget searchedTarget = default /*todo 索敌目标*/)
+        public bool Begin(SkillDescriptor skill, IAbilityTarget searchedTarget = default, float skillSpeed = 1f)
         {
             if (m_Actor.Tag.HasTag(ActorTag.SilenceAbility) || skill == null)
             {
@@ -98,12 +95,11 @@ namespace RogueGods.Gameplay.AbilityDriven
             Interrupt();
             CurrentSkill = skill;
             CurrentSkill.Ability = Ability.Allocate(CurrentSkill);
-            float speed = 1f + m_Actor.Attribute[AttributeType.AttackSpeedModifier];
-            m_AbilityDirector.Enable(skill.Ability, searchedTarget, null, speed);
+            m_AbilityDirector.Enable(skill.Ability, searchedTarget, null, skillSpeed);
             if (skill.Ability != null && skill.Ability.TryGetComponent(out SkillDescription skillDescriptor))
             {
                 m_Actor.Animator.Play(skillDescriptor.State);
-                m_Actor.Animator.SetSpeed(speed);
+                m_Actor.Animator.SetSpeed(skillSpeed);
                 if(skillDescriptor.EnableRootMotion) m_Actor.EnableRootMotion();
             }
 

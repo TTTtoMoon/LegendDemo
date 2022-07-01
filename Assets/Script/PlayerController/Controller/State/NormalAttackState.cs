@@ -20,7 +20,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             }
 
             SkillDescriptor normalAttack = normalAttacks[m_NormalAttackIndex];
-            return actor.SkillDirector.Begin(normalAttack);
+            return actor.SkillDirector.Begin(normalAttack, skillSpeed: 1f + actor.Attribute[AttributeType.AttackSpeedModifier]);
         }
 
         protected override void OnEnter()

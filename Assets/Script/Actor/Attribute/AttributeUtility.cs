@@ -12,22 +12,8 @@ namespace RogueGods.Gameplay
             switch (attribute)
             {
                 case AttributeType.MaxHealth:
-                case AttributeType.RedHeartRecover:
                 case AttributeType.Energy:
                 case AttributeType.Attack:
-                case AttributeType.DamageAdditionOfAll:
-                case AttributeType.DamageAdditionOfGround:
-                case AttributeType.DamageAdditionOfFly:
-                case AttributeType.DamageAdditionOfMeleeUnit:
-                case AttributeType.DamageAdditionOfRangeUnit:
-                case AttributeType.DamageAdditionOfMonster:
-                case AttributeType.DamageAdditionOfBoss:
-                case AttributeType.DamageReductionsOfAll:
-                case AttributeType.DamageReductionsOfStatic:
-                case AttributeType.DamageReductionsOfForward:
-                case AttributeType.DamageReductionsOfBackward:
-                case AttributeType.DamageReductionsOfCrash:
-                case AttributeType.DamageReductionsOfProjectile:
                     return Mathf.Round(value); // 修正为整数
                 default:
                     return value;
