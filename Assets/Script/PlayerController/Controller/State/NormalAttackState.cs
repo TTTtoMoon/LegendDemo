@@ -8,9 +8,9 @@ namespace RogueGods.Gameplay.LocalPlayer
         private float m_PreviousAttackTime;
         private int   m_NormalAttackIndex = 0;
 
-        public bool TryNormalAttack()
+        public bool TryNormalAttack(Actor actor, SkillDescriptor[] normalAttacks)
         {
-            if (Time.time - m_PreviousAttackTime > 0.2f || m_NormalAttackIndex + 1 >= _Machine.NormalAttacks.Length)
+            if (Time.time - m_PreviousAttackTime > 0.2f || m_NormalAttackIndex + 1 >= normalAttacks.Length)
             {
                 m_NormalAttackIndex = 0;
             }
@@ -19,8 +19,8 @@ namespace RogueGods.Gameplay.LocalPlayer
                 m_NormalAttackIndex++;
             }
 
-            SkillDescriptor normalAttack = _Machine.NormalAttacks[m_NormalAttackIndex];
-            return _Owner.SkillDirector.Begin(normalAttack);
+            SkillDescriptor normalAttack = normalAttacks[m_NormalAttackIndex];
+            return actor.SkillDirector.Begin(normalAttack);
         }
 
         protected override void OnEnter()
@@ -58,7 +58,7 @@ namespace RogueGods.Gameplay.LocalPlayer
                 case SkillPhase.Finishing:
                     if (_Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Up))
                     {
-                        TryNormalAttack();
+                        _Machine.TryNormalAttack();
                     }
 
                     break;

@@ -110,7 +110,7 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         public bool TryNormalAttack()
         {
-            if (ControllerState.NormalAttackState.TryNormalAttack())
+            if (ControllerState.NormalAttackState.TryNormalAttack(Owner, NormalAttacks))
             {
                 return false;
             }
