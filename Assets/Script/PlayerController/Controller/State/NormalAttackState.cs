@@ -53,7 +53,7 @@ namespace RogueGods.Gameplay.LocalPlayer
                     break;
 
                 case SkillPhase.Finishing:
-                    if (TryLocomotion() == false && _Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Up))
+                    if (TryLocomotion() == false && _Machine.Input.VerifyInput(InputType.NormalAttack, InputState.Down | InputState.Hold))
                     {
                         _Machine.TryNormalAttack();
                     }

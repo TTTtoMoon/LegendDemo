@@ -36,6 +36,7 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         protected override void Update()
         {
+            Input.UpdateInputState();
             Vector2 direction = Vector2.zero;
             if (UnityInput.GetKey(KeyCode.W))
             {
