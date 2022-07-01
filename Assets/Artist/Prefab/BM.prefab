@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Attributes:
   - Type: 104
     Value: 0.5
+  m_BloodPrefab: {fileID: 7024573576582961165, guid: 54f4718ec2f2f43cdae99662d2c7f787, type: 3}
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0

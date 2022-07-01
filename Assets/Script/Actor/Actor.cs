@@ -1,13 +1,16 @@
 using System;
 using Abilities;
 using RogueGods.Gameplay.AbilityDriven;
+using RogueGods.Gameplay.Blood;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace RogueGods.Gameplay
 {
-    [RequireComponent(typeof(Animator), typeof(SlotPoint), typeof(NavMeshAgent))]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(SlotPoint))]
+    [RequireComponent(typeof(NavMeshAgent))]
     public sealed class Actor : MonoBehaviour,
         IAbilityOwner, IAbilityTarget, IFilterTarget,
         IDamageMaker, IDamageTaker
@@ -36,6 +39,8 @@ namespace RogueGods.Gameplay
         [SerializeField] private BodyType           m_BodyType;
         [SerializeField] private LocomotionProperty m_Locomotion;
         [SerializeField] private AttributeConfig[]  m_Attributes;
+        [SerializeField] private HeaderBlood        m_BloodPrefab;
+        [NonSerialized]  private HeaderBlood        m_BloodInstance;
         [NonSerialized]  private SlotPoint          m_SlotPoint;
         [NonSerialized]  private NavMeshAgent       m_NavMeshAgent;
         [NonSerialized]  private float              m_CurrentHealth;
@@ -107,6 +112,16 @@ namespace RogueGods.Gameplay
             }
 
             m_CurrentHealth = Attribute[AttributeType.MaxHealth];
+        }
+
+        private void Start()
+        {
+            m_BloodInstance = HeaderBlood.CreateBlood(m_BloodPrefab, this);
+        }
+
+        private void OnDestroy()
+        {
+            if (m_BloodInstance != null) DestroyImmediate(m_BloodInstance);
         }
 
         public void EnableRootMotion()
@@ -226,8 +241,8 @@ namespace RogueGods.Gameplay
 
         bool IDamageTaker.CanTakeDamage(in DamageRequest request)
         {
-            return m_CurrentHealth                   > 0f     && // 有血
-                   Tag.HasTag(ActorTag.Transparency) == false && // 不透明
+            return m_CurrentHealth                   > 0f     &&                                  // 有血
+                   Tag.HasTag(ActorTag.Transparency) == false &&                                  // 不透明
                    Random.Range(0f, 1f)              < Attribute[AttributeType.DodgeProbability]; // 未闪避
         }
 

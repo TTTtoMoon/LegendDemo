@@ -13,20 +13,12 @@ namespace RogueGods.Gameplay.LocalPlayer
         [SerializeField] private int[] m_NormalAttacks = new int[0];
         [SerializeField] private int   m_SpecialAttack;
 
-        private Transform         m_MainCamera;
-
         public SkillDescriptor[] NormalAttacks { get; private set; }
         public SkillDescriptor   SpecialAttack { get; private set; }
 
         protected override State<Actor, PlayerController> GetDefaultState()
         {
             return ControllerState.LocomotionState;
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            if (Camera.main != null) m_MainCamera = Camera.main.transform;
         }
 
         protected override void Start()
@@ -65,7 +57,7 @@ namespace RogueGods.Gameplay.LocalPlayer
                 direction.x += 1f;
             }
 
-            direction.Rotation(m_MainCamera.eulerAngles.y);
+            direction.Rotation(GameManager.MainCamera.transform.eulerAngles.y);
             Input.SetDirection(direction);
 
             if (UnityInput.GetKeyDown(KeyCode.Space))
@@ -110,7 +102,7 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         public bool TryNormalAttack()
         {
-            if (ControllerState.NormalAttackState.TryNormalAttack(Owner, NormalAttacks))
+            if (ControllerState.NormalAttackState.TryNormalAttack(Owner, NormalAttacks) == false)
             {
                 return false;
             }

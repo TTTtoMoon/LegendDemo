@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using RogueGods.Gameplay;
 using RogueGods.Gameplay.AbilityDriven;
+using RogueGods.Gameplay.UI;
 using RogueGods.Gameplay.VFX;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace RogueGods
     public sealed class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
+        
+        public static Camera MainCamera => Instance.m_MainCamera;
 
         public static DamageSystem     DamageSystem     => Instance.m_DamageSystem;
         public static AbilitySystem    AbilitySystem    => Instance.m_AbilitySystem;
@@ -20,13 +23,18 @@ namespace RogueGods
         public static OrbSystem        OrbSystem        => Instance.m_OrbSystem;
         public static FlashChainSystem FlashChainSystem => Instance.m_FlashChainSystem;
         public static LineRenderSystem LineRenderSystem => Instance.m_LineRenderSystem;
+        public static UISystem         UISystem         => Instance.m_UISystem;
 
+        private Camera m_MainCamera;
+            
         private readonly DamageSystem     m_DamageSystem     = new DamageSystem();
         private readonly AbilitySystem    m_AbilitySystem    = new AbilitySystem();
         private readonly VFXSystem        m_VFXSystem        = new VFXSystem();
         private readonly OrbSystem        m_OrbSystem        = new OrbSystem();
         private readonly FlashChainSystem m_FlashChainSystem = new FlashChainSystem();
         private readonly LineRenderSystem m_LineRenderSystem = new LineRenderSystem();
+        private readonly UISystem         m_UISystem         = new UISystem();
+
 
         private GameSystem[] m_Systems;
 
@@ -102,9 +110,10 @@ namespace RogueGods
 
             Instance = this;
             DontDestroyOnLoad(this);
+            m_MainCamera = Camera.main;
             m_Systems = GetType()
                 .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
-                .Where(x=>typeof(GameSystem).IsAssignableFrom(x.FieldType))
+                .Where(x => typeof(GameSystem).IsAssignableFrom(x.FieldType))
                 .Select(x => x.GetValue(this) as GameSystem)
                 .ToArray();
 
@@ -158,7 +167,7 @@ namespace RogueGods
             GizmoMonoOrder               order = GizmoMonoOrder.Default)
         {
 #if UNITY_EDITOR
-            AddToRealList(_GizmoList, func, frequency, (int) order);
+            AddToRealList(_GizmoList, func, frequency, (int)order);
             //Debugger.Log(Color.blue, "当前Gizmo：", _GizmoList.Count);
 #endif
         }
