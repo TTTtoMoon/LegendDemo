@@ -17,12 +17,13 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 0.5
+    m_Value: 0.83
     m_IsInt: 0
   m_Components:
   - rid: 5229940989932863492
   m_Features:
   - rid: 2426968539276509185
+  - rid: 2426968567281614848
   references:
     version: 2
     RefIds:
@@ -106,10 +107,32 @@ MonoBehaviour:
           m_Value: 0.03
           m_IsInt: 0
         TickImmediately: 1
+    - rid: 2426968567281614848
+      type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
+      data:
+        Frames:
+        - Time: 0.2
+          Targets:
+          - rid: 2426968567281614849
+          Effects:
+          - rid: 2426968567281614850
+    - rid: 2426968567281614849
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968567281614850
+      type: {class: PlayRandomAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audios:
+        - {fileID: 8300000, guid: 7137eae013522fc478092ded114d4510, type: 3}
+        - {fileID: 8300000, guid: 0208575c576b6cd4b9361a6048495e7c, type: 3}
+        - {fileID: 8300000, guid: 9855597b791341c4b888380f0c9ec0c4, type: 3}
+        - {fileID: 8300000, guid: 4559326e17b72704280a960450c1aa6d, type: 3}
+        - {fileID: 8300000, guid: 2af0514e4af25df4d922eaf9d9ac14a5, type: 3}
     - rid: 5229940989932863492
       type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
       data:
         State:
           m_Name: Attack1
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0.5}
+        ActingTime: {x: 0, y: 0.83}

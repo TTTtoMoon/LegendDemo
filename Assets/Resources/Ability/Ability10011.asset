@@ -17,11 +17,12 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 2
+    m_Value: 3.15
     m_IsInt: 0
   m_Components:
   - rid: 2426968565744140289
-  m_Features: []
+  m_Features:
+  - rid: 2426968565744140290
   references:
     version: 2
     RefIds:
@@ -29,6 +30,29 @@ MonoBehaviour:
       type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
       data:
         State:
-          m_Name: 5
+          m_Name: 6
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0}
+        ActingTime: {x: 0, y: 3.15}
+    - rid: 2426968565744140290
+      type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
+      data:
+        Frames:
+        - Time: 0.81
+          Targets:
+          - rid: 2426968565744140291
+          Effects:
+          - rid: 2426968565744140292
+    - rid: 2426968565744140291
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968565744140292
+      type: {class: Dash, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DashDistance:
+          m_UniqueName: DashDistance
+          m_Value: 5
+          m_IsInt: 0
+        DashDirectionAngle: 0
+        DashDistanceOffset: {x: 0, y: 0}
+        DashDuration: 0.1
