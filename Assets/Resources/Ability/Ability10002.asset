@@ -29,6 +29,6 @@ MonoBehaviour:
       type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
       data:
         State:
-          m_Name: 1
+          m_Name: 3
         EnableRootMotion: 0
         ActingTime: {x: 0, y: 0.4}
