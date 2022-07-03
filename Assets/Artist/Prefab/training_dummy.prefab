@@ -202,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 4697017240656324050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8033125610158513919}
@@ -319,7 +319,8 @@ MonoBehaviour:
     Value: 100000000
   m_BloodPrefab: {fileID: 7024573576582961165, guid: 54f4718ec2f2f43cdae99662d2c7f787, type: 3}
   m_DamageLabel: {fileID: 3799109739502275065, guid: 4f4d1b13242443f45942972fd43852cd, type: 3}
-  m_DamageLabelOffset: {x: -0.57, y: 1.68, z: 1}
+  m_DamageLabelOffset: {x: 0, y: 1.35, z: 0}
+  m_DeathAudio: {fileID: 0}
 --- !u!1 &6681963291794728114
 GameObject:
   m_ObjectHideFlags: 0

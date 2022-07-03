@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: 3
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0.7}
+        ActingTime: {x: 0, y: 0.76}
     - rid: 2426968567281614851
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:
@@ -47,7 +47,7 @@ MonoBehaviour:
           - rid: 2426968582025379866
           Effects:
           - rid: 2426968582025379867
-        - Time: 0.76
+        - Time: 0.75
           Targets:
           - rid: 2426968582025379869
           Effects:
