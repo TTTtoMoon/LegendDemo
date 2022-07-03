@@ -46,6 +46,7 @@ namespace RogueGods.Gameplay
         [SerializeField] private HeaderBlood        m_BloodPrefab;
         [SerializeField] private TextMeshPro        m_DamageLabel;
         [SerializeField] private Vector3            m_DamageLabelOffset;
+        [SerializeField] private AudioClip          m_DeathAudio;
         [NonSerialized]  private HeaderBlood        m_BloodInstance;
         [NonSerialized]  private SlotPoint          m_SlotPoint;
         [NonSerialized]  private NavMeshAgent       m_NavMeshAgent;
@@ -283,6 +284,7 @@ namespace RogueGods.Gameplay
             label.transform.forward  = GameManager.MainCamera.transform.forward;
             label.text               = response.IsCritical ? $"{response.Damage}!" : response.Damage.ToString(CultureInfo.InvariantCulture);
             label.color              = response.IsCritical ? Color.red : new Color(0.99f, 0.86f, 0.31f, 1f);
+            AudioSource.PlayClipAtPoint(m_DeathAudio, Position);
 
             if (m_CurrentHealth > 0f)
             {
