@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: Attack2
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 1.2}
+        ActingTime: {x: 0, y: 1.17}
     - rid: 2426968567281614854
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:

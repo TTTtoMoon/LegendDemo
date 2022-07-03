@@ -17,7 +17,7 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 0.87
+    m_Value: 0.76
     m_IsInt: 0
   m_Components:
   - rid: 2426968539276509191
