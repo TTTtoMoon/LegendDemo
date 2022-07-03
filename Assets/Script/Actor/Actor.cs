@@ -281,7 +281,7 @@ namespace RogueGods.Gameplay
                 label.transform.position = transform.position + m_DamageLabelOffset;
                 label.transform.forward  = GameManager.MainCamera.transform.forward;
                 label.text               = isCritical ? $"{damage}!" : damage.ToString(CultureInfo.InvariantCulture);
-                label.color              = isCritical ? new Color(0.96f, 0.36f, 0.11f, 1f) : Color.red;
+                label.color              = isCritical ? Color.red : new Color(0.99f, 0.86f, 0.31f, 1f);
                 while (label.alpha > 0f)
                 {
                     label.alpha -= Speed * Time.deltaTime;

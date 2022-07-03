@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.57
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77c1ea29eb05c6445a9eb42c9fb4aace, type: 3}
       propertyPath: m_LocalRotation.w
@@ -116,8 +116,10 @@ MonoBehaviour:
   - Type: 101
     Value: 100
   - Type: 104
-    Value: 0.5
-  m_BloodPrefab: {fileID: 7024573576582961165, guid: 54f4718ec2f2f43cdae99662d2c7f787, type: 3}
+    Value: 0.25
+  m_BloodPrefab: {fileID: 0}
+  m_DamageLabel: {fileID: 0}
+  m_DamageLabelOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0
