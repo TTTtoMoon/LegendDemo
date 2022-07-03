@@ -285,7 +285,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 0
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -318,6 +318,8 @@ MonoBehaviour:
   - Type: 1
     Value: 5000
   m_BloodPrefab: {fileID: 7024573576582961165, guid: 54f4718ec2f2f43cdae99662d2c7f787, type: 3}
+  m_DamageLabel: {fileID: 3799109739502275065, guid: 4f4d1b13242443f45942972fd43852cd, type: 3}
+  m_DamageLabelOffset: {x: 0, y: 3, z: 0}
 --- !u!1 &6681963291794728114
 GameObject:
   m_ObjectHideFlags: 0

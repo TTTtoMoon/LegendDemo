@@ -1,7 +1,11 @@
 using System;
+using System.Collections;
+using System.Globalization;
 using Abilities;
 using RogueGods.Gameplay.AbilityDriven;
 using RogueGods.Gameplay.Blood;
+using TMPro;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -40,6 +44,8 @@ namespace RogueGods.Gameplay
         [SerializeField] private LocomotionProperty m_Locomotion;
         [SerializeField] private AttributeConfig[]  m_Attributes;
         [SerializeField] private HeaderBlood        m_BloodPrefab;
+        [SerializeField] private TextMeshPro        m_DamageLabel;
+        [SerializeField] private Vector3            m_DamageLabelOffset;
         [NonSerialized]  private HeaderBlood        m_BloodInstance;
         [NonSerialized]  private SlotPoint          m_SlotPoint;
         [NonSerialized]  private NavMeshAgent       m_NavMeshAgent;
@@ -255,6 +261,7 @@ namespace RogueGods.Gameplay
             DecreaseCurrentHealth(response.Damage);
             OnTakeDamage?.Invoke(response);
             Events.OnTakeDamage?.Invoke(response);
+            StartCoroutine(ShowDamageLabel(Instantiate(m_DamageLabel), response.Damage, response.IsCritical));
 
             if (m_CurrentHealth > 0f)
             {
@@ -265,6 +272,23 @@ namespace RogueGods.Gameplay
                 Animator.Play(AnimationDefinition.State.Death);
                 OnDead?.Invoke(response);
                 Events.OnDead?.Invoke(response);
+            }
+
+            IEnumerator ShowDamageLabel(TextMeshPro label, float damage, bool isCritical)
+            {
+                const float Speed = 1f / 0.8f;
+
+                label.transform.position = transform.position + m_DamageLabelOffset;
+                label.transform.forward  = GameManager.MainCamera.transform.forward;
+                label.text               = isCritical ? $"{damage}!" : damage.ToString(CultureInfo.InvariantCulture);
+                label.color              = isCritical ? new Color(0.96f, 0.36f, 0.11f, 1f) : Color.red;
+                while (label.alpha > 0f)
+                {
+                    label.alpha -= Speed * Time.deltaTime;
+                    yield return null;
+                }
+                
+                DestroyImmediate(label.gameObject);
             }
         }
     }
