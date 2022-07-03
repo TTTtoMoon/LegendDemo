@@ -17,7 +17,7 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 1
+    m_Value: 0.87
     m_IsInt: 0
   m_Components:
   - rid: 2426968539276509191
@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: 3
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 1}
+        ActingTime: {x: 0, y: 0.87}
     - rid: 2426968567281614851
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:

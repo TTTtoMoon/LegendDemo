@@ -17,7 +17,7 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 1
+    m_Value: 1.2
     m_IsInt: 0
   m_Components:
   - rid: 2426968539276509193
@@ -30,9 +30,9 @@ MonoBehaviour:
       type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
       data:
         State:
-          m_Name: 2
+          m_Name: Attack2
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 1}
+        ActingTime: {x: 0, y: 1.2}
     - rid: 2426968567281614854
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:
