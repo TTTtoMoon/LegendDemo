@@ -56,7 +56,6 @@ MonoBehaviour:
         - {fileID: 8300000, guid: 7137eae013522fc478092ded114d4510, type: 3}
         - {fileID: 8300000, guid: 0208575c576b6cd4b9361a6048495e7c, type: 3}
         - {fileID: 8300000, guid: 9855597b791341c4b888380f0c9ec0c4, type: 3}
-        - {fileID: 8300000, guid: 4559326e17b72704280a960450c1aa6d, type: 3}
         - {fileID: 8300000, guid: 2af0514e4af25df4d922eaf9d9ac14a5, type: 3}
     - rid: 2426968582025379863
       type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
@@ -101,7 +100,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271642
       type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}

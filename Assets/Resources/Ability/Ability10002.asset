@@ -17,7 +17,7 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 0.76
+    m_Value: 0.83
     m_IsInt: 0
   m_Components:
   - rid: 2426968539276509191
@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: 3
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0.76}
+        ActingTime: {x: 0, y: 0.83}
     - rid: 2426968567281614851
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:
@@ -68,7 +68,6 @@ MonoBehaviour:
         - {fileID: 8300000, guid: 7137eae013522fc478092ded114d4510, type: 3}
         - {fileID: 8300000, guid: 0208575c576b6cd4b9361a6048495e7c, type: 3}
         - {fileID: 8300000, guid: 9855597b791341c4b888380f0c9ec0c4, type: 3}
-        - {fileID: 8300000, guid: 4559326e17b72704280a960450c1aa6d, type: 3}
         - {fileID: 8300000, guid: 2af0514e4af25df4d922eaf9d9ac14a5, type: 3}
     - rid: 2426968582025379866
       type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}

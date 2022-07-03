@@ -23,6 +23,7 @@ MonoBehaviour:
   - rid: 2426968565744140289
   m_Features:
   - rid: 2426968565744140290
+  - rid: 2426968585844293632
   references:
     version: 2
     RefIds:
@@ -108,7 +109,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient
-          m_Value: 1
+          m_Value: 1.2
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -153,7 +154,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient01
-          m_Value: 1
+          m_Value: 1.35
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -181,7 +182,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient02
-          m_Value: 1
+          m_Value: 0.75
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -205,7 +206,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient03
-          m_Value: 1
+          m_Value: 0.55
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -229,7 +230,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient04
-          m_Value: 1
+          m_Value: 0.75
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -253,7 +254,7 @@ MonoBehaviour:
       data:
         DamageCoefficient:
           m_UniqueName: DamageCoefficient05
-          m_Value: 1
+          m_Value: 0.55
           m_IsInt: 0
         DamageMaterial: 0
         HurtAttackLevel:
@@ -356,3 +357,65 @@ MonoBehaviour:
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
       data:
         Filter: 2
+    - rid: 2426968585844293632
+      type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
+      data:
+        Frames:
+        - Time: 0.82
+          Targets:
+          - rid: 2426968585844293633
+          Effects:
+          - rid: 2426968585844293634
+          - rid: 2426968585844293636
+        - Time: 1.54
+          Targets:
+          - rid: 2426968585844293637
+          Effects:
+          - rid: 2426968585844293638
+        - Time: 2.35
+          Targets:
+          - rid: 2426968585844293639
+          Effects:
+          - rid: 2426968585844293640
+        - Time: 2.75
+          Targets:
+          - rid: 2426968585844293641
+          Effects:
+          - rid: 2426968585844293642
+    - rid: 2426968585844293633
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968585844293634
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 0ecc7c86c61327d4e95fd9aa0b9fcd40, type: 3}
+    - rid: 2426968585844293636
+      type: {class: PlayRandomAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audios:
+        - {fileID: 8300000, guid: 4559326e17b72704280a960450c1aa6d, type: 3}
+    - rid: 2426968585844293637
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968585844293638
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 86fa6608cd3e09745aa72d4164cafa4a, type: 3}
+    - rid: 2426968585844293639
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968585844293640
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 6e0286e3945e05f4e810cb9532078930, type: 3}
+    - rid: 2426968585844293641
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968585844293642
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 6e0286e3945e05f4e810cb9532078930, type: 3}
