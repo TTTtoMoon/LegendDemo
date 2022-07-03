@@ -42,6 +42,36 @@ MonoBehaviour:
           - rid: 2426968565744140291
           Effects:
           - rid: 2426968565744140292
+        - Time: 0.93
+          Targets:
+          - rid: 2426968582924271616
+          Effects:
+          - rid: 2426968582924271617
+        - Time: 1.63
+          Targets:
+          - rid: 2426968582924271619
+          Effects:
+          - rid: 2426968582924271620
+        - Time: 2.4
+          Targets:
+          - rid: 2426968582924271634
+          Effects:
+          - rid: 2426968582924271623
+        - Time: 2.53
+          Targets:
+          - rid: 2426968582924271636
+          Effects:
+          - rid: 2426968582924271626
+        - Time: 2.8
+          Targets:
+          - rid: 2426968582924271638
+          Effects:
+          - rid: 2426968582924271629
+        - Time: 3
+          Targets:
+          - rid: 2426968582924271640
+          Effects:
+          - rid: 2426968582924271632
     - rid: 2426968565744140291
       type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
       data:
@@ -56,3 +86,273 @@ MonoBehaviour:
         DashDirectionAngle: 0
         DashDistanceOffset: {x: 0, y: 0}
         DashDuration: 0.1
+    - rid: 2426968582924271616
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271618
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1}
+        AngleOffset: 0
+        Length: 2
+        Width: 1
+    - rid: 2426968582924271617
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271618
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582924271619
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271621
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1}
+        AngleOffset: 0
+        Length: 2
+        Width: 1
+    - rid: 2426968582924271620
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient01
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271621
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582924271623
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient02
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel02
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel02
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed02
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271626
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient03
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel03
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel03
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed03
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271629
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient04
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel04
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel04
+          m_Value: 2.8
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed04
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271632
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient05
+          m_Value: 1
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel05
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel05
+          m_Value: 2.8
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed05
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582924271634
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271635
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 2.7
+    - rid: 2426968582924271635
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582924271636
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271637
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 2.7
+    - rid: 2426968582924271637
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582924271638
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271639
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 2.7
+    - rid: 2426968582924271639
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582924271640
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582924271641
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 2.7
+    - rid: 2426968582924271641
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
