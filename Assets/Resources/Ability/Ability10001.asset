@@ -117,4 +117,4 @@ MonoBehaviour:
         State:
           m_Name: Attack1
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 0.83}
+        ActingTime: {x: 0, y: 0.8}

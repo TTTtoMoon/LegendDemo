@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: Attack2
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 1.17}
+        ActingTime: {x: 0, y: 1.15}
     - rid: 2426968567281614854
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:
@@ -47,6 +47,11 @@ MonoBehaviour:
           - rid: 2426968582025379872
           Effects:
           - rid: 2426968582025379873
+        - Time: 0.4
+          Targets:
+          - rid: 2426968582924271647
+          Effects:
+          - rid: 2426968582924271646
     - rid: 2426968567281614855
       type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
       data:
@@ -105,3 +110,11 @@ MonoBehaviour:
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
       data:
         Filter: 2
+    - rid: 2426968582924271646
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 86fa6608cd3e09745aa72d4164cafa4a, type: 3}
+    - rid: 2426968582924271647
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
