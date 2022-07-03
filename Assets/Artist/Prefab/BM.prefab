@@ -111,6 +111,10 @@ MonoBehaviour:
     m_MovementSpeed: 3
     m_MovementAcceleration: 2
   m_Attributes:
+  - Type: 1
+    Value: 1000
+  - Type: 101
+    Value: 100
   - Type: 104
     Value: 0.5
   m_BloodPrefab: {fileID: 7024573576582961165, guid: 54f4718ec2f2f43cdae99662d2c7f787, type: 3}
@@ -127,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
+  m_InputCacheTime: 0.2
   m_NormalAttacks: 112700001227000013270000
   m_SpecialAttack: 10011
 --- !u!114 &3937976831312300055

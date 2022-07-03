@@ -241,9 +241,9 @@ namespace RogueGods.Gameplay
 
         bool IDamageTaker.CanTakeDamage(in DamageRequest request)
         {
-            return m_CurrentHealth                   > 0f     &&                                  // 有血
-                   Tag.HasTag(ActorTag.Transparency) == false &&                                  // 不透明
-                   Random.Range(0f, 1f)              < Attribute[AttributeType.DodgeProbability]; // 未闪避
+            return m_CurrentHealth                   > 0f     &&                                   // 有血
+                   Tag.HasTag(ActorTag.Transparency) == false &&                                   // 不透明
+                   Random.Range(0f, 1f)              >= Attribute[AttributeType.DodgeProbability]; // 未闪避
         }
 
         void IDamageTaker.PrepareTakeDamage(in DamageRequest request, ref Defender defender)
