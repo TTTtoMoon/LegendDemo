@@ -52,6 +52,11 @@ MonoBehaviour:
           - rid: 2426968582025379869
           Effects:
           - rid: 2426968582025379870
+        - Time: 0.45
+          Targets:
+          - rid: 2426968582924271644
+          Effects:
+          - rid: 2426968582924271645
     - rid: 2426968567281614852
       type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
       data:
@@ -155,3 +160,11 @@ MonoBehaviour:
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
       data:
         Filter: 2
+    - rid: 2426968582924271644
+      type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+    - rid: 2426968582924271645
+      type: {class: PlayAudio, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        Audio: {fileID: 8300000, guid: 6e0286e3945e05f4e810cb9532078930, type: 3}
