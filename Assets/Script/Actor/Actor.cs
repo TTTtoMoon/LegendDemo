@@ -58,7 +58,7 @@ namespace RogueGods.Gameplay
         public TargetFilter       Type            => m_Type;
         public BodyMaterial       Material        => m_BodyMaterial;
         public BodyType           BodyType        => m_BodyType;
-        public Vector3            HitPosition     => transform.position;
+        public Vector3            HitPosition     => m_SlotPoint.GetSlotPosition(TransformSlot.HitPosition);
         public LocomotionProperty Locomotion      => m_Locomotion;
         public SlotPoint          SlotPoint       => m_SlotPoint;
         public NavMeshAgent       NavMeshAgent    => m_NavMeshAgent;
