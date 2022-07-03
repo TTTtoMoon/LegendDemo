@@ -12,6 +12,7 @@ namespace RogueGods.Gameplay
         {
             m_Animator   = animator;
             m_LayerCount = animator.layerCount;
+            Initialize();
         }
 
         private Dictionary<int, NiceDelegate> m_StateEnterCallbackMap = new Dictionary<int, NiceDelegate>();

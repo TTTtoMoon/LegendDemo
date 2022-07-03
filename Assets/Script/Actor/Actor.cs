@@ -118,6 +118,7 @@ namespace RogueGods.Gameplay
             }
 
             m_CurrentHealth = Attribute[AttributeType.MaxHealth];
+            Animator.AddStateExitListener(AnimationDefinition.State.Death, ReBorn);
         }
 
         private void Start()
@@ -127,6 +128,7 @@ namespace RogueGods.Gameplay
 
         private void OnDestroy()
         {
+            Animator.RemoveStateExitListener(AnimationDefinition.State.Death, ReBorn);
             if (m_BloodInstance != null) DestroyImmediate(m_BloodInstance);
         }
 
@@ -210,6 +212,21 @@ namespace RogueGods.Gameplay
         }
 
         /// <summary>
+        /// 重生
+        /// </summary>
+        public void ReBorn()
+        {
+            if (Type == TargetFilter.Player)
+            {
+                transform.position = new Vector3(2.4f, 0f, 2.8f);
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+
+            Animator.Play(AnimationDefinition.State.Birth);
+            CurrentHealth = Attribute[AttributeType.MaxHealth];
+        }
+
+        /// <summary>
         /// 设置当前血量值
         /// </summary>
         private bool SetCurrentHealth(float value)
@@ -287,7 +304,7 @@ namespace RogueGods.Gameplay
                     label.alpha -= Speed * Time.deltaTime;
                     yield return null;
                 }
-                
+
                 DestroyImmediate(label.gameObject);
             }
         }

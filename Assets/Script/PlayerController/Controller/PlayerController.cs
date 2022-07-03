@@ -1,6 +1,7 @@
 using RogueGods.Gameplay.AbilityDriven;
 using RogueGods.Utility;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityInput = UnityEngine.Input;
 
 namespace RogueGods.Gameplay.LocalPlayer
@@ -37,6 +38,12 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         protected override void Update()
         {
+            if (Owner.CurrentHealth <= 0f)
+            {
+                Input.ClearInput();
+                return;
+            }
+
             Input.UpdateInputState();
             Vector2 direction = Vector2.zero;
             if (UnityInput.GetKey(KeyCode.W))
@@ -87,6 +94,12 @@ namespace RogueGods.Gameplay.LocalPlayer
             else if (UnityInput.GetKeyUp(KeyCode.K))
             {
                 Input.EnqueueInput(InputType.EnergySkill, false);
+            }
+
+            if (UnityInput.GetKeyDown(KeyCode.R))
+            {
+                Owner.CurrentHealth = 0f;
+                Owner.Animator.Play(AnimationDefinition.State.Death);
             }
 
             base.Update();
