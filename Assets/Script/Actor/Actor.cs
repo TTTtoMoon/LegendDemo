@@ -226,6 +226,15 @@ namespace RogueGods.Gameplay
             Animator.Play(AnimationDefinition.State.Birth);
             CurrentHealth = Attribute[AttributeType.MaxHealth];
         }
+        
+        /// <summary>
+        /// 死亡
+        /// </summary>
+        public void Die()
+        {
+            AudioSource.PlayClipAtPoint(m_DeathAudio, Position);
+            Animator.Play(AnimationDefinition.State.Death);
+        }
 
         /// <summary>
         /// 设置当前血量值
@@ -291,8 +300,7 @@ namespace RogueGods.Gameplay
             }
             else
             {
-                AudioSource.PlayClipAtPoint(m_DeathAudio, Position);
-                Animator.Play(AnimationDefinition.State.Death);
+                Die();
                 OnDead?.Invoke(response);
                 Events.OnDead?.Invoke(response);
             }

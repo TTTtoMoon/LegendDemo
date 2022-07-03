@@ -99,7 +99,7 @@ namespace RogueGods.Gameplay.LocalPlayer
             if (UnityInput.GetKeyDown(KeyCode.R))
             {
                 Owner.CurrentHealth = 0f;
-                Owner.Animator.Play(AnimationDefinition.State.Death);
+                Owner.Die();
             }
 
             base.Update();
