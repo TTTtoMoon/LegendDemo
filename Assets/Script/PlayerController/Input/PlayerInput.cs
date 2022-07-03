@@ -6,16 +6,25 @@ namespace RogueGods.Gameplay.LocalPlayer
     public class PlayerInput
     {
         public static readonly int InputTypeCount = Enum.GetValues(typeof(InputType)).Length;
-
+        
         private Vector3      m_Direction;
-        private InputState[] m_InputStates = new InputState[InputTypeCount];
+        private InputState[] m_InputStates    = new InputState[InputTypeCount];
+        private float[]      m_InputDownCache = new float[InputTypeCount];
+
+        public float InputCacheTime { get; set; }
 
         public Vector3 Direction => m_Direction;
 
         public bool VerifyInput(InputType inputType, InputState inputState)
         {
-            int index = (int)inputType;
-            return (m_InputStates[index] & inputState) != InputState.None;
+            int index = (int) inputType;
+            if ((m_InputStates[index] & inputState) != InputState.None)
+            {
+                return true;
+            }
+
+            float cacheTime = m_InputDownCache[index];
+            return cacheTime > 0f && cacheTime + InputCacheTime >= Time.time;
         }
 
         public void SetDirection(Vector2 direction)
@@ -41,8 +50,12 @@ namespace RogueGods.Gameplay.LocalPlayer
 
         public void EnqueueInput(InputType inputType, bool inputState)
         {
-            int index = (int)inputType;
+            int index = (int) inputType;
             m_InputStates[index] = inputState ? InputState.Down : InputState.Up;
+            if (inputState)
+            {
+                m_InputDownCache[index] = Time.time;
+            }
         }
 
         public void ClearInput()

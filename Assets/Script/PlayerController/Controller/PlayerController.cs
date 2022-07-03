@@ -1,4 +1,3 @@
-using System;
 using RogueGods.Gameplay.AbilityDriven;
 using RogueGods.Utility;
 using UnityEngine;
@@ -10,7 +9,8 @@ namespace RogueGods.Gameplay.LocalPlayer
     {
         public readonly PlayerInput Input = new PlayerInput();
 
-        [SerializeField] private int[] m_NormalAttacks = new int[0];
+        [SerializeField] private float m_InputCacheTime = 0.2f;
+        [SerializeField] private int[] m_NormalAttacks  = new int[0];
         [SerializeField] private int   m_SpecialAttack;
 
         public SkillDescriptor[] NormalAttacks { get; private set; }
@@ -24,6 +24,7 @@ namespace RogueGods.Gameplay.LocalPlayer
         protected override void Start()
         {
             base.Start();
+            Input.InputCacheTime = m_InputCacheTime;
             SetOwner(GetComponent<Actor>());
             NormalAttacks = new SkillDescriptor[m_NormalAttacks.Length];
             for (int i = 0; i < m_NormalAttacks.Length; i++)
