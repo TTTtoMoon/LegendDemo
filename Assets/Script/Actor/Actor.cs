@@ -278,7 +278,11 @@ namespace RogueGods.Gameplay
             DecreaseCurrentHealth(response.Damage);
             OnTakeDamage?.Invoke(response);
             Events.OnTakeDamage?.Invoke(response);
-            StartCoroutine(ShowDamageLabel(Instantiate(m_DamageLabel), response.Damage, response.IsCritical));
+            TextMeshPro label = Instantiate(m_DamageLabel);
+            label.transform.position = transform.position + m_DamageLabelOffset;
+            label.transform.forward  = GameManager.MainCamera.transform.forward;
+            label.text               = response.IsCritical ? $"{response.Damage}!" : response.Damage.ToString(CultureInfo.InvariantCulture);
+            label.color              = response.IsCritical ? Color.red : new Color(0.99f, 0.86f, 0.31f, 1f);
 
             if (m_CurrentHealth > 0f)
             {
@@ -289,23 +293,6 @@ namespace RogueGods.Gameplay
                 Animator.Play(AnimationDefinition.State.Death);
                 OnDead?.Invoke(response);
                 Events.OnDead?.Invoke(response);
-            }
-
-            IEnumerator ShowDamageLabel(TextMeshPro label, float damage, bool isCritical)
-            {
-                const float Speed = 1f / 0.8f;
-
-                label.transform.position = transform.position + m_DamageLabelOffset;
-                label.transform.forward  = GameManager.MainCamera.transform.forward;
-                label.text               = isCritical ? $"{damage}!" : damage.ToString(CultureInfo.InvariantCulture);
-                label.color              = isCritical ? Color.red : new Color(0.99f, 0.86f, 0.31f, 1f);
-                while (label.alpha > 0f)
-                {
-                    label.alpha -= Speed * Time.deltaTime;
-                    yield return null;
-                }
-
-                DestroyImmediate(label.gameObject);
             }
         }
     }
