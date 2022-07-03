@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: PlayerSkillDescription, ns: RogueGods.Gameplay.AbilityDriven, asm: Assembly-CSharp}
       data:
         State:
-          m_Name: 6
+          m_Name: 5
         EnableRootMotion: 0
         ActingTime: {x: 0, y: 3.15}
     - rid: 2426968565744140290
@@ -126,7 +126,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271618
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
@@ -171,7 +171,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271621
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
@@ -199,7 +199,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271626
       type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
@@ -223,7 +223,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271629
       type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
@@ -247,7 +247,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271632
       type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
@@ -271,7 +271,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582924271634
       type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}

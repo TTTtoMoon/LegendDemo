@@ -120,6 +120,7 @@ MonoBehaviour:
   m_BloodPrefab: {fileID: 0}
   m_DamageLabel: {fileID: 0}
   m_DamageLabelOffset: {x: 0, y: 0, z: 0}
+  m_DeathAudio: {fileID: 8300000, guid: 764b5505eda01a247877b2a5f64db851, type: 3}
 --- !u!114 &2275978082955527124
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -108,7 +108,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582025379868
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
@@ -153,7 +153,7 @@ MonoBehaviour:
           m_IsInt: 0
         RetreatAbsolute: 0
         HitSound: {fileID: 0}
-        HitVFX: {fileID: 0}
+        HitVFX: {fileID: 2981233846487126522, guid: ce5e7abcffa309b44b9b58d64153d78b, type: 3}
         IgnoreSameTarget: 0
     - rid: 2426968582025379871
       type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
