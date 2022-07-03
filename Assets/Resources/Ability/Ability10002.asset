@@ -17,7 +17,7 @@ MonoBehaviour:
     Tag: 0
   m_Duration:
     m_UniqueName: Duration
-    m_Value: 1
+    m_Value: 0.76
     m_IsInt: 0
   m_Components:
   - rid: 2426968539276509191
@@ -32,7 +32,7 @@ MonoBehaviour:
         State:
           m_Name: 3
         EnableRootMotion: 0
-        ActingTime: {x: 0, y: 1}
+        ActingTime: {x: 0, y: 0.87}
     - rid: 2426968567281614851
       type: {class: AbilityTimelineFeature, ns: Abilities, asm: AbilitySystem}
       data:
@@ -42,6 +42,16 @@ MonoBehaviour:
           - rid: 2426968567281614852
           Effects:
           - rid: 2426968567281614853
+        - Time: 0.5
+          Targets:
+          - rid: 2426968582025379866
+          Effects:
+          - rid: 2426968582025379867
+        - Time: 0.76
+          Targets:
+          - rid: 2426968582025379869
+          Effects:
+          - rid: 2426968582025379870
     - rid: 2426968567281614852
       type: {class: Origin, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
       data:
@@ -55,3 +65,93 @@ MonoBehaviour:
         - {fileID: 8300000, guid: 9855597b791341c4b888380f0c9ec0c4, type: 3}
         - {fileID: 8300000, guid: 4559326e17b72704280a960450c1aa6d, type: 3}
         - {fileID: 8300000, guid: 2af0514e4af25df4d922eaf9d9ac14a5, type: 3}
+    - rid: 2426968582025379866
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582025379868
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0.5, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 1.6
+    - rid: 2426968582025379867
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient
+          m_Value: 0.6
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582025379868
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
+    - rid: 2426968582025379869
+      type: {class: StaticSquareArea, ns: RogueGods.Gameplay.AbilityDriven.Target, asm: Assembly-CSharp}
+      data:
+        Origin: 0
+        IncludeOrigin: 0
+        Filter:
+          m_Item:
+            m_Index: 0
+            m_Value:
+              rid: 2426968582025379871
+            m_Reverse: 0
+          m_AndGroups: []
+          m_OrGroups: []
+        CenterOffset: {x: 0, y: 1.1}
+        AngleOffset: 0
+        Length: 2.4
+        Width: 2.7
+    - rid: 2426968582025379870
+      type: {class: ApplyConstDamage, ns: RogueGods.Gameplay.AbilityDriven.TriggerEffect, asm: Assembly-CSharp}
+      data:
+        DamageCoefficient:
+          m_UniqueName: DamageCoefficient01
+          m_Value: 0.55
+          m_IsInt: 0
+        DamageMaterial: 0
+        HurtAttackLevel:
+          m_UniqueName: HurtAttackLevel01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAttackLevel:
+          m_UniqueName: RetreatAttackLevel01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatSpeed:
+          m_UniqueName: RetreatSpeed01
+          m_Value: 0
+          m_IsInt: 0
+        RetreatAbsolute: 0
+        HitSound: {fileID: 0}
+        HitVFX: {fileID: 0}
+        IgnoreSameTarget: 0
+    - rid: 2426968582025379871
+      type: {class: TargetTypeFilter, ns: RogueGods.Gameplay.AbilityDriven.Filter, asm: Assembly-CSharp}
+      data:
+        Filter: 2
